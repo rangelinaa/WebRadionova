@@ -1,6 +1,7 @@
 @import "./global.css";
 @import "./fonts.css";
 @import "./utils.css";
+@import url('fonts.css');
 
 .test {
     color: yellow !important;
