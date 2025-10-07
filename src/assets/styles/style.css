@@ -10,3 +10,118 @@
 .test {
     color: red !important;
 }
+
+.text {
+    font-size: 16px;
+    line-height: 26px;
+    color: #3E2723;
+}
+
+.title-main {
+    font-size: 64px;
+    color: #7A1F3D;
+}
+
+.title-secondary {
+    font-weight: 500;
+    font-size: 44px;
+    text-align: center;
+    color: #7A1F3D;
+}
+
+.title-h3 {
+    font-size: 36px;
+    text-align: center;
+    color: #7A1F3D;
+}
+
+.title-h4 {
+    font-size: 20px;
+    line-height: 30px;
+    color: #7A1F3D;
+}
+
+.input-field {
+    border: 1px solid #3E2723;
+	box-sizing: border-box;
+	border-radius: 10px;
+	opacity: 0.4;
+}
+
+.btn-submit {
+  background: linear-gradient(90deg, #a86a5f 0%, #3E2723 100%);
+  box-shadow: 5px 20px 50px rgba(16, 112, 177, 0.2);
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  text-align: center;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  padding: 12px 40px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+form {
+  background-image: url('/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 30px;
+  border-radius: 20px;
+  min-height: 300px;
+  position: relative;
+  overflow: hidden; 
+}
+
+form::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); 
+  border-radius: 20px;
+  z-index: 0;
+}
+
+form * {
+  position: relative;
+  z-index: 1;
+}
+
+form label {
+  color: #FFFFFF;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 15px 0 30px 0;
+  padding: 10px 20px;
+  background: linear-gradient(to right, #a86a5f, #3E2723);
+  border-radius: 10px;
+  font-family: 'OpenSans', sans-serif;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.breadcrumbs a {
+  color: #3E2723;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs span {
+  color: #3E2723;
+  font-weight: bold;
+}
+
+.breadcrumbs .active {
+  opacity: 0.8;
+  pointer-events: none;
+}

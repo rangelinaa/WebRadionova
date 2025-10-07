@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/assets/styles/style.css">
     <title>XOXO — Сплетницы</title>
 </head>
 <body>
@@ -10,21 +11,20 @@
 <header>
     <img src="xoxo.jpg" alt="XOXO" width="120">
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="contacts.html">Секреты</a></li>
-        </ul>
+    <nav class="breadcrumbs">
+        <a href="index.html">XOXO Blog</a>
+        <span>></span>
+        <a href="contacts.html" class="active">Сплетницы</a>
     </nav>
 </header>
 
-<h2>Сплетницы</h2>
-<p>Тссс…</p>
+<h2 class="title-secondary">Сплетницы</h2>
+<p class="text">Тссс…</p>
 
 <img src="kiss.jpg" alt="kiss" width="350">
 
 <h4>Backstage</h4>
-<p>Манхэттен</p>
+<p class="text">Манхэттен</p>
 
 <h4>Горячая линия</h4>
 <ul>
@@ -40,22 +40,22 @@
 
 <h4>Отправить сплетню</h4>
 <form>
-    <label>Твоё звёздное имя: <input type="text" name="Your Star Name"></label><br><br>
-    <label>VIP-почта: <input type="email" name="Inbox VIP"></label><br><br>
-    <label>Расскажи сплетню: <textarea name="Spill the Tea"></textarea></label><br><br>
-    <button type="submit">XOXO</button>
+    <label>Твоё звёздное имя: <input class="input-field" type="text" name="Your Star Name"></label><br><br>
+    <label>VIP-почта: <input class="input-field" type="email" name="Inbox VIP"></label><br><br>
+    <label>Расскажи сплетню: <textarea class="input-field" name="Spill the Tea"></textarea></label><br><br>
+    <button class="btn-submit" type="submit">XOXO</button>
 </form>
 
 <footer>
-    <h3>Сплетницы</h3>
-    <p>Хочешь поделиться историей?</p>
+    <h3 class="title-h3">Сплетницы</h3>
+    <p class="text">Хочешь поделиться историей?</p>
     <hr>
     <ul>
         <li>Редакция XOXO</li>
         <li>+1 800 GOSSIP</li>
         <li>xoxo@gossip.com</li>
     </ul>
-    <p>Все права защищены. XOXO.</p>
+    <p class="text">Все права защищены. XOXO.</p>
 </footer>
 
 </body>
