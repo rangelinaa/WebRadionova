@@ -5,9 +5,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.5em;
-    margin: 100px auto;
-    padding: 16px;
+    gap: 0.8em;
+    margin: 40px auto;
+    padding: 8px;
     font-size: 12px;
 }
 
@@ -19,7 +19,17 @@
 
 .tic-tac-toe-inner {
     width: 100%;
+    backdrop-filter: blur(6px);
+    background: rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
+
+body {
+  transition: background-image 0.8s ease-in-out, filter 0.5s ease;
+}
+
     
 /* Game */
 .tic-tac-toe {
@@ -44,4 +54,108 @@
 /* Current move */
 .tic-tac-toe__current-move {
     font-size: 2em;
+}
+
+.theme-select {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+body.bg-paper {
+  background: url('bg-paper.jpg') no-repeat center center/cover;
+}
+
+body.bg-underground {
+  background: url('bg-underground.jpg') no-repeat center center/cover;
+}
+
+body.bg-sport {
+  background: url('bg-sport.jpg') no-repeat center center/cover;
+}
+
+.tic-tac-toe__ceil img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.2s ease-in-out;
+  animation: popIn 0.25s ease-in-out;
+}
+@keyframes popIn {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.tic-tac-toe__ceil {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 8px;
+}
+
+.tic-tac-toe__ceil:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 150, 255, 0.6);
+  border: 2px solid rgba(0, 150, 255, 0.8);
+}
+
+.button,
+.theme-btn {
+  background: linear-gradient(135deg, #6ec1e4, #3a78b7);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover,
+.theme-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(0, 150, 255, 0.6);
+}
+
+.theme-select {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.theme-btn[data-theme="classic"] {
+  background: linear-gradient(135deg, #f0f0f0, #c8c8c8);
+  color: #333;
+}
+
+.theme-btn[data-theme="underground"] {
+  background: linear-gradient(135deg, #2b2b2b, #6c1f1f);
+}
+
+.theme-btn[data-theme="sport"] {
+  background: linear-gradient(135deg, #0aa94f, #0078ff);
+}
+
+/* === Фоновые темы === */
+body.bg-paper,
+body.bg-underground,
+body.bg-sport {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh;
+  transition: background 0.5s ease-in-out;
+}
+
+body.bg-paper {
+  background-image: url("bg-paper.jpg");
+}
+
+body.bg-underground {
+  background-image: url("bg-underground.jpg");
+  filter: brightness(0.9) contrast(1.1);
+}
+
+body.bg-sport {
+  background-image: url("bg-sport.jpg");
 }

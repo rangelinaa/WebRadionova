@@ -35,4 +35,60 @@ function init() {
     restartBtn.addEventListener('click', () => {
         game.restartGame()
     })
+
+const themes = {
+  classic: {
+    bgClass: 'bg-paper',
+    xImg: null,
+    oImg: null,
+  },
+  underground: {
+    bgClass: 'bg-underground',
+    xImg: 'assets/style/graffiti.jpg',
+    oImg: 'assets/style/skull.jpg',
+  },
+  sport: {
+    bgClass: 'bg-sport',
+    xImg: 'assets/style/adik.jpg',
+    oImg: 'assets/style/nike.jpg',
+  }
+}
+
+let currentTheme = 'classic'
+setTheme(currentTheme)
+
+function setTheme(themeName) {
+  document.body.className = '' // убрать предыдущие фоны
+  const theme = themes[themeName]
+  document.body.classList.add(theme.bgClass)
+  currentTheme = themeName
+  game.restartGame()
+}
+
+// слушатели на кнопки тем
+document.querySelectorAll('.theme-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    setTheme(btn.dataset.theme)
+  })
+})
+
+// переопределим отрисовку символов
+const originalSetBlockDom = game.setBlockDom.bind(game)
+game.setBlockDom = (target, clear) => {
+  if (clear) {
+    target.textContent = ''
+    target.innerHTML = ''
+    return
+  }
+
+  const turn = game.getCurrentTurnValue()
+  const theme = themes[currentTheme]
+
+  if (theme.xImg && theme.oImg) {
+    target.innerHTML = `<img src="${turn === 'X' ? theme.xImg : theme.oImg}" alt="${turn}">`
+  } else {
+    originalSetBlockDom(target, clear)
+  }
+}
+
 }
