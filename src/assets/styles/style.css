@@ -10,3 +10,65 @@
 .test {
     color: red !important;
 }
+
+
+body {
+  background: linear-gradient(135deg, #ffeef5, #fff9fc);
+  font-family: 'Montserrat', sans-serif;
+}
+
+#game {
+  border-collapse: collapse;
+  margin: 20px auto;
+  background-color: #fff0f5;
+  border: 2px solid #ffb6c1;
+  box-shadow: 0 0 15px 3px rgba(255, 182, 193, 0.7); 
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #1c1c1c;
+}
+
+.snakeHead {
+  background-color: #ffe066;
+  border-radius: 4px;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 150, 0.8);
+}
+
+.snakeBody {
+  background-color: #fff6a3;
+  border-radius: 3px;
+}
+
+.food {
+  background-color: #c1f7c5;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px rgba(193, 247, 197, 0.7);
+}
+
+.menuButton {
+  display: inline-block;
+  background-color: #ffb6c1;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 25px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 10px 2px rgba(255, 182, 193, 0.6);
+}
+
+.menuButton:hover {
+  transform: scale(1.08);
+  box-shadow: #ab2b4d; 
+}
+
+.menuButton.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

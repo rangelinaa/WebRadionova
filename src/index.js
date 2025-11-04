@@ -239,7 +239,16 @@ const snake = {
   /**
    * Двигает змейку на один шаг.
    */
-  makeStep() {},
+  makeStep() {
+  // Получаем следующую точку головы
+    const nextPoint = this.getNextStepHeadPoint();
+  // Добавляем её в начало тела
+    this.body.unshift(nextPoint);
+  // Убираем последний элемент (движение)
+    this.body.pop();
+  // Запоминаем направление шага
+    this.lastStepDirection = this.direction;
+  },
 
   /**
    * Добавляет в конец тела змейки копию последнего элемента змейки.
@@ -331,7 +340,9 @@ const food = {
    * @param {{x: int, y: int}} point Точка, для проверки соответствия точке еды.
    * @returns {boolean} true, если точки совпали, иначе false.
    */
-  isOnPoint(point) {},
+  isOnPoint(point) {
+    return this.x === point.x && this.y === point.y;
+  },
 };
 
 /**
@@ -557,7 +568,18 @@ const game = {
    * Отдает случайную не занятую точку на карте.
    * @return {{x: int, y: int}} Точку с координатами.
    */
-  getRandomFreeCoordinates() {},
+  getRandomFreeCoordinates() {
+    while (true) {
+    const randomPoint = {
+      x: Math.floor(Math.random() * this.config.getColsCount()),
+      y: Math.floor(Math.random() * this.config.getRowsCount()),
+    };
+    // Проверяем, не занята ли точка змейкой
+    if (!this.snake.isOnPoint(randomPoint)) {
+      return randomPoint;
+    }
+  }
+  },
 
   /**
    * Обработчик события нажатия на кнопку playButton.
@@ -625,19 +647,32 @@ const game = {
    * @param {string} direction Направление, которое проверяем.
    * @returns {boolean} true, если направление можно назначить змейке, иначе false.
    */
-  canSetDirection(direction) {},
+  canSetDirection(direction) {
+    const last = this.snake.getLastStepDirection();
+    if (direction === "up" && last === "down") return false;
+    if (direction === "down" && last === "up") return false;
+    if (direction === "left" && last === "right") return false;
+    if (direction === "right" && last === "left") return false;
+    return direction !== "";
+  },
 
   /**
    * Проверяем произошла ли победа, судим по очкам игрока (длине змейки).
    * @returns {boolean} true, если игрок выиграл игру, иначе false.
    */
-  isGameWon() {},
+  isGameWon() {
+    return false;
+  },
 
   /**
    * Проверяет возможен ли следующий шаг.
    * @returns {boolean} true если следующий шаг змейки возможен, false если шаг не может быть совершен.
    */
-  canMakeStep() {},
+  canMakeStep() {
+    const nextPoint = this.snake.getNextStepHeadPoint();
+  // Если змейка наезжает на саму себя — конец игры
+    return !this.snake.isOnPoint(nextPoint);
+  },
 };
 
 // При загрузке страницы инициализируем игру.
