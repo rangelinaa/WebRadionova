@@ -242,10 +242,10 @@ body {
   background-color: #1f4fb5;
 }
 
+/* Заголовок второго блока */
 .dev-header {
   max-width: 1124px;
-  margin: 0 auto;
-  margin-bottom: 40px;
+  margin: 0 auto 40px;
   padding: 0;
 }
 
@@ -283,7 +283,7 @@ body {
   margin-bottom: 24px;
 }
 
-.development-cycle>p {
+.development-cycle > p {
   font-size: 15px;
   color: #0a0a0a;
   margin-bottom: 60px;
@@ -400,7 +400,7 @@ body {
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 30px;
-  margin: 10px 0 10px 0;
+  margin: 10px 0;
 }
 
 /* каждая колонка */
@@ -464,9 +464,7 @@ hr {
   border-top: 1px solid #ccc;
 }
 
-/* ========================================
-   АДАПТИВ ДЛЯ 768px
-   ======================================== */
+/* АДАПТИВ ДЛЯ 768px */
 @media (max-width: 768px) {
   .site-header {
     top: 12px;
@@ -660,9 +658,7 @@ hr {
   }
 }
 
-/* ========================================
-   АДАПТИВ ДЛЯ 425px
-   ======================================== */
+/* АДАПТИВ ДЛЯ 425px */
 @media (max-width: 425px) {
   .site-header {
     top: 8px;
@@ -692,7 +688,7 @@ hr {
   .hero {
     min-height: auto;
     height: auto;
-    background-image: url('../src/assets/img/hero-bg.png');
+    background-image: url('./src/assets/img/hero-bg.png');
     background-size: 100%;
     background-position: center 320px;
     padding: 80px 16px 40px;
@@ -730,7 +726,7 @@ hr {
     order: 2;
     width: 100%;
     height: 220px;
-    background-image: url('../src/assets/img/hero-bg.png');
+    background-image: url('./src/assets/img/hero-bg.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
