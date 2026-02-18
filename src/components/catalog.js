@@ -71,14 +71,15 @@ export class Catalog {
         window.history.pushState({}, '', url)
     }
 
-    loadItems () {
+    async loadItems () {
         try {
-            this.#getItems({ limit: this.limit, page: this.#page })
-                .then(({ items, total }) => {
+            const { items, total } = 
+                await this.#getItems({ limit: this.limit, page: this.#page });
+                
                     this.#total = total
                     this.renderItems(items)
                     this.renderPagination()
-        })
+
         } catch (error) {
             console.log(error);
         }
