@@ -15,14 +15,16 @@ const renderPostItem = item => `
     </a>
 `
 
-const getPostItems = ({ limit, page }) => {
-    return fetch(`https://jsonplaceholder.typicode.com/posts?_limit=${limit}&_page=${page}`)
-        .then(async res => {
+const getPostItems = async ({ limit, page }) => {
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=${limit}&_page=${page}`)
+        if (! res.ok) {
+            throw new Error('Ошибка загрузки постов')
+        } 
             const total = +res.headers.get('x-total-count')
             const items = await res.json()
             return { items, total }
-        })
-}
+        }
+
 
 const renderPhotoItem = item => `
     <a  
@@ -40,14 +42,16 @@ const renderPhotoItem = item => `
     </a>
 `
 
-const getPhotoItems = ({ limit, page }) => {
-    return fetch(`https://jsonplaceholder.typicode.com/photos?_limit=${limit}&_page=${page}`)
-        .then(async res => {
+const getPhotoItems = async ({ limit, page }) => {
+    const res = await fetch(`https://jsonplaceholder.typicode.com/photos?_limit=${limit}&_page=${page}`)
+        if(!res.ok) {
+            throw new Error("Ошибка загрузки фото")
+        }
             const total = +res.headers.get('x-total-count')
             const items = await res.json()
             return { items, total }
-        })
-}
+        }
+
 
 const init = () => {
     const catalog = document.getElementById('catalog')
