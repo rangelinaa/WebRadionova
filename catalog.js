@@ -14,7 +14,7 @@ const renderPostItem = item => `
         </span>
     </a>
 `
-
+// перевод на async/await
 const getPostItems = async ({ limit, page }) => {
     const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=${limit}&_page=${page}`)
         if (! res.ok) {
@@ -41,7 +41,7 @@ const renderPhotoItem = item => `
         >
     </a>
 `
-
+// перевод на async/await
 const getPhotoItems = async ({ limit, page }) => {
     const res = await fetch(`https://jsonplaceholder.typicode.com/photos?_limit=${limit}&_page=${page}`)
         if(!res.ok) {

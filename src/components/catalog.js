@@ -70,7 +70,8 @@ export class Catalog {
 
         window.history.pushState({}, '', url)
     }
-
+    
+// перевод на async/await
     async loadItems () {
         try {
             const { items, total } = 
