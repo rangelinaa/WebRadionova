@@ -71,7 +71,8 @@ export class Catalog {
         window.history.pushState({}, '', url)
     }
     
-// перевод на async/await
+// перевод на async/await 
+// + обработка ошибки
     async loadItems () {
         try {
             const { items, total } = 
@@ -82,7 +83,8 @@ export class Catalog {
                     this.renderPagination()
 
         } catch (error) {
-            console.log(error);
+            this.#itemsEl.innerHTML = 'Ошибка загрузки';
+            this.#paginationEl.innerHTML = '';
         }
     }
 
