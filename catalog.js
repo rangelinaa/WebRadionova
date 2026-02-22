@@ -2,7 +2,7 @@ import { Catalog } from "./src/components/catalog.js"
 
 const renderPostItem = item => `
     <a  
-        href="posts/${item.id}"
+        href="posts.html?id=${item.id}"
         class="post-item"
     >
         <span class="post-item__title">
