@@ -25,19 +25,19 @@ const init = async () => {
     const main = document.querySelector("main.main");
 
     main.innerHTML = `
-        <h1>Todos</h1>
-
-        <form id="todo-form">
-            <input 
-                type="text" 
-                name="description" 
-                placeholder="Введите задачу"
-                required
-            />
-            <button type="submit">Добавить</button>
-        </form>
-
-        <div id="todo-list">   
+        <div class="todos-wrapper">
+            <h1>Todos</h1>
+            <form id="todo-form" class="todo-form">
+                <input 
+                    type="text" 
+                    name="description" 
+                    placeholder="Введите задачу"
+                    required
+                />
+                <button type="submit">Добавить</button>
+            </form>
+            <div id="todo-list" class="todo-list"></div>
+        </div>
     `;
 
     const todoList = document.getElementById("todo-list");
@@ -48,7 +48,7 @@ const init = async () => {
         div.innerHTML = `
             <input type="checkbox" ${todo.completed ? "checked" : ""} />
             <span style="${todo.completed ? "text-decoration: line-through" : ""}">${todo.description}</span>
-            <button class="delete-btn">Удалить</button>
+            <button class="todo-delete-btn">Удалить</button>
         `;
 
         const checkbox = div.querySelector("input[type='checkbox']");
@@ -64,7 +64,7 @@ const init = async () => {
             }
         });
 
-        const deleteBtn = div.querySelector(".delete-btn");
+        const deleteBtn = div.querySelector(".todo-delete-btn");
         deleteBtn.addEventListener("click", async () => {
             const res = await TodoRepository.remove(todo.id);
             if (res.ok) {
