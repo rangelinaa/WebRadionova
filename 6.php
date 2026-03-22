@@ -1,10 +1,10 @@
+<?php
 /*
 Задание 6
 С помощью рекурсии организовать функцию возведения числа в степень. 
 Формат: function power($val, $pow), где $val – заданное число, $pow – степень.
 */
 
-<?php
     function power($val, $pow) {
         if ($pow == 0) {
             return 1;
@@ -12,7 +12,7 @@
         return $val * power($val, $pow - 1);
     }
 
-    echo "power(3, 4) = " . power(3, 4);
-    echo "power(2, 8) = " . power(2, 8);
+    echo "Число 3 в степени 4: " . power(3, 4)."\n";
+    echo "Число 2 в степени 8: " . power(2, 8);
 
 ?>
