@@ -1,15 +1,12 @@
 <?php
-/*Подключение к БД через PDO*/
-
 const DB_HOST = 'localhost';
-const DB_NAME = 'catalog_menu';
+const DB_NAME = 'catalog_shop';
 const DB_USER = 'root';
 const DB_PASS = '';
 
 function getPDO(): PDO
 {
-    static $pdo = null; 
-
+    static $pdo = null;
     if ($pdo === null) {
         $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8mb4';
         $options = [
@@ -19,6 +16,5 @@ function getPDO(): PDO
         ];
         $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
     }
-
     return $pdo;
 }
