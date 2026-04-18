@@ -107,4 +107,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     loadFeedback();
+
+    const ratingEl = document.querySelector('[data-rating]');
+if (ratingEl) {
+    const stars = ratingEl.querySelectorAll('.rating__star');
+    const hidden = ratingEl.parentElement.querySelector('input[name="rating"]');
+    let currentValue = 5;
+
+    const paint = (value) => {
+        stars.forEach(s => {
+            s.classList.toggle('is-active', +s.dataset.value <= value);
+        });
+    };
+
+    stars.forEach(star => {
+        star.addEventListener('mouseenter', () => paint(+star.dataset.value));
+        star.addEventListener('click', () => {
+            currentValue = +star.dataset.value;
+            hidden.value = currentValue;
+            paint(currentValue);
+        });
+    });
+    ratingEl.addEventListener('mouseleave', () => paint(currentValue));
+    paint(currentValue);
+}
 });
