@@ -1,14 +1,14 @@
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init)
+    document.addEventListener('DOMContentLoaded', init);
 } else {
-    init()
+    init();
 }
 
 function init() {
-    const listEl = document.getElementById('list-items');
-    if (!listEl) return;
+    const el = document.getElementById('list-items');
+    if (!el) return;
 
-    listEl.addEventListener('click', (e) => {
+    el.addEventListener('click', (e) => {
         const arrow = e.target.closest('[data-open]');
         if (arrow) {
             const parent = arrow.closest('[data-parent]');
